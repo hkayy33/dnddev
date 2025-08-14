@@ -16,4 +16,5 @@ public class GameFunctionTests
     {
         Assert.That(Teams.TeamChoice, Is.EqualTo(3));
     }
+
 }

@@ -177,3 +177,4 @@
 /Users/hassan/Desktop/dnddev/dndAppTester/obj/Debug/net9.0/dndAppTester.pdb
 /Users/hassan/Desktop/dnddev/dndAppTester/obj/Debug/net9.0/dndAppTester.genruntimeconfig.cache
 /Users/hassan/Desktop/dnddev/dndAppTester/obj/Debug/net9.0/ref/dndAppTester.dll
+/Users/hassan/Desktop/dnddev/dndAppTester/obj/Debug/net9.0/dndAppTester.sourcelink.json

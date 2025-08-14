@@ -12,3 +12,4 @@
 /Users/hassan/Desktop/dnddev/dndApp/obj/Debug/net9.0/dndApp.pdb
 /Users/hassan/Desktop/dnddev/dndApp/obj/Debug/net9.0/dndApp.genruntimeconfig.cache
 /Users/hassan/Desktop/dnddev/dndApp/obj/Debug/net9.0/ref/dndApp.dll
+/Users/hassan/Desktop/dnddev/dndApp/obj/Debug/net9.0/dndApp.sourcelink.json
