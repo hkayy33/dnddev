@@ -14,7 +14,7 @@ public class GameFunctionTests
     [Test]
     public void Check_If_Three_Characters_Are_Stored_In_A_List()
     {
-        Assert.That(Teams.TeamChoice, Is.EqualTo(3));
+        Assert.That(TeamGenerator.TeamChoice, Is.EqualTo(3));
     }
 
 }
