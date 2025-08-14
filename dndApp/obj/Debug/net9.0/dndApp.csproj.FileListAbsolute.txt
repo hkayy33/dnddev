@@ -1,0 +1,14 @@
+/Users/hassan/Desktop/dnddev/dndApp/bin/Debug/net9.0/dndApp
+/Users/hassan/Desktop/dnddev/dndApp/bin/Debug/net9.0/dndApp.deps.json
+/Users/hassan/Desktop/dnddev/dndApp/bin/Debug/net9.0/dndApp.runtimeconfig.json
+/Users/hassan/Desktop/dnddev/dndApp/bin/Debug/net9.0/dndApp.dll
+/Users/hassan/Desktop/dnddev/dndApp/bin/Debug/net9.0/dndApp.pdb
+/Users/hassan/Desktop/dnddev/dndApp/obj/Debug/net9.0/dndApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hassan/Desktop/dnddev/dndApp/obj/Debug/net9.0/dndApp.AssemblyInfoInputs.cache
+/Users/hassan/Desktop/dnddev/dndApp/obj/Debug/net9.0/dndApp.AssemblyInfo.cs
+/Users/hassan/Desktop/dnddev/dndApp/obj/Debug/net9.0/dndApp.csproj.CoreCompileInputs.cache
+/Users/hassan/Desktop/dnddev/dndApp/obj/Debug/net9.0/dndApp.dll
+/Users/hassan/Desktop/dnddev/dndApp/obj/Debug/net9.0/refint/dndApp.dll
+/Users/hassan/Desktop/dnddev/dndApp/obj/Debug/net9.0/dndApp.pdb
+/Users/hassan/Desktop/dnddev/dndApp/obj/Debug/net9.0/dndApp.genruntimeconfig.cache
+/Users/hassan/Desktop/dnddev/dndApp/obj/Debug/net9.0/ref/dndApp.dll
