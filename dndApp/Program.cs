@@ -13,12 +13,10 @@ class Program
         }
         Console.WriteLine("\n");
         //Print Team A
-        var TeamA = new TeamGenerator();
-        Console.WriteLine("\nTeam A: ");
+        var TeamA = new TeamGenerator(name: "The Elites");
         TeamA.TeamChoice();
         //Print Team B
-        var TeamB = new TeamGenerator();
-        Console.WriteLine("\nTeam B: ");
+        var TeamB = new TeamGenerator(name: "Fantastic 3");
         TeamB.TeamChoice();
     }
 }

@@ -1,13 +1,22 @@
 public class TeamGenerator
 {
-    private  List<string> team = new List<string>();
- 
-     private  List<string> characterTypes = new List<string> { "Fighter", "Wizard", "Cleric" };
+    // Instance fields (not static anymore)
+    public List<string> team;
+    private string teamName;
+    private List<string> characterTypes;
 
-    public  int TeamChoice()
+    // Constructor to initialize the team instance
+    public TeamGenerator(string name)
+    {
+        teamName = name;
+        team = new List<string>();
+        characterTypes = new List<string> { "Fighter", "Wizard", "Cleric" };
+    }
+    public int TeamChoice()
     {
         // Available character type
         GenerateRandomTeam(characterTypes);
+        Console.WriteLine($"\n{teamName}: ");
         DisplayTeam();
         // Display the team
 
@@ -17,7 +26,7 @@ public class TeamGenerator
         return num;
     }
 
-    private  void DisplayTeam()
+    private void DisplayTeam()
     {
         for (int i = 0; i < team.Count; i++)
         {
@@ -25,7 +34,7 @@ public class TeamGenerator
         }
     }
 
-    private  void GenerateRandomTeam(List<string> characterTypes)
+    private void GenerateRandomTeam(List<string> characterTypes)
     {
         Random rand = new Random();
         // Create a team of 3 random characters
