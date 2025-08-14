@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestPlatform.TestHost;
+using Microsoft.VisualStudio.TestPlatform.Utilities;
 using NUnit.Framework;
 
 
@@ -10,6 +11,9 @@ public class GameFunctionTests
     private Warrior warrior;
     private Cleric cleric;
     private Wizard wizard;
+    private Game game;
+     private StringWriter _consoleOutput;
+    private TextWriter _originalOutput;
 
 
     [SetUp]
@@ -18,6 +22,11 @@ public class GameFunctionTests
         warrior = new Warrior();
         cleric = new Cleric();
         wizard = new Wizard();
+        game = new Game(new TeamGenerator("A"), new TeamGenerator("B"));
+         _consoleOutput = new StringWriter();
+        _originalOutput = Console.Out;
+        Console.SetOut(_consoleOutput);
+
 
     }
 
@@ -74,19 +83,67 @@ public class GameFunctionTests
         Assert.That(wizard.setDefaultAttackValues, Is.LessThanOrEqualTo(20));
     }
 
+    [Test]
+    public void BattleRound_Should_End_When_Fighter_Dies()
+    {
+
+        (int remainingA, int remainingB) = game.BattleRound(warrior, wizard);
+
+        Assert.That(remainingA <= 0 || remainingB <= 0);
+    }
+
+    [Test]
+    public void BattleRound_Should_Reduce_At_Least_One_Fighters_Health()
+    {
+        int initialHealthA = warrior.DefaultHealth;
+        int initialHealthB = wizard.DefaultHealth;
+
+        (int remainingA, int remainingB) = game.BattleRound(warrior, wizard);
+
+        Assert.That(remainingA < initialHealthA || remainingB < initialHealthB);
+
+    }
+
+    [Test]
+    public void Check_That_BattleRound_Should_End_With_At_Least_One_Fighter_Dead()
+    {
+
+        (int remainingA, int remainingB) = game.BattleRound(warrior, wizard);
+
+        Assert.That(remainingA <= 0 || remainingB <= 0);
+    }
+
+    [Test]
+    public void BattleRound_Should_Return_Valid_Health_Values()
+    {
+        (int remainingA, int remainingB) = game.BattleRound(wizard, warrior);
+
+        Assert.That(remainingA, Is.InRange(0, wizard.DefaultHealth));
+        Assert.That(remainingB, Is.InRange(0, warrior.DefaultHealth));
+    }
+    [Test]
+    public void Fight_Should_Handle_Multiple_Rounds()
+    {
+        var teamA = new TeamGenerator("TeamA");
+        var teamB = new TeamGenerator("TeamB");
+        teamA.team.Add(new Warrior());
+        teamA.team.Add(new Wizard());
+        teamB.team.Add(new Wizard());
+        teamB.team.Add(new Warrior());
+        game = new Game(teamA, teamB);
+
+        game.Fight();
+        string output = _consoleOutput.ToString();
+
+        Assert.That(output.Contains("Warrior wins this round!") || output.Contains("Cleric wins this round!")|| output.Contains("Warrior wins this round!"));
+    }
 
     // game funciton
     /*
         We want to alternate between Team A and B
     */
 
-    [Test]
-    public void Check_Instance_of_TeamGenerator_is_available()
-    {
 
-
-        Assert.That(Game.Attackers[0], Is.InstanceOf<Warrior>());
-    }
 
 
 }

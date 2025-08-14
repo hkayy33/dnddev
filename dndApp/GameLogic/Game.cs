@@ -20,7 +20,7 @@ public class Game
         Fight();
     }
 
-    private void Fight()
+    public void Fight()
     {
         int indexA = 0;
         int indexB = 0;
@@ -62,7 +62,7 @@ public class Game
             Console.WriteLine($"\n{teamA.teamName} Wins!");
     }
 
-    private (int, int) BattleRound(BaseCharacter fighterA, BaseCharacter fighterB)
+    public (int, int) BattleRound(BaseCharacter fighterA, BaseCharacter fighterB)
     {
         int healthA = fighterA.DefaultHealth;
         int healthB = fighterB.DefaultHealth;
