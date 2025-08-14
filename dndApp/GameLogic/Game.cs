@@ -1,86 +1,103 @@
+using System;
+using System.Collections.Generic;
+
 public class Game
 {
     private TeamGenerator teamA;
     private TeamGenerator teamB;
+    private Random rand;
 
     public Game(TeamGenerator a, TeamGenerator b)
     {
         teamA = a;
         teamB = b;
+        rand = new Random();
     }
 
     public void GameRun()
     {
-        var arena = CreateArena();
+        Console.WriteLine("\n____ Battle Start! ____");
         Fight();
     }
 
-    private List<(BaseCharacter, BaseCharacter)> CreateArena()
-    {
-        var arena = new List<(BaseCharacter, BaseCharacter)>();
-        int count = Math.Min(teamA.team.Count, teamB.team.Count);
-
-        for (int i = 0; i < count; i++)
-        {
-            arena.Add((teamA.team[i], teamB.team[i]));
-        }
-
-        return arena;
-    }
     private void Fight()
-{
-    Console.WriteLine("\n____Battle Start!____");
-
-    int indexA = 0;
-    int indexB = 0;
-
-    var fighterA = teamA.team[indexA];
-    var fighterB = teamB.team[indexB];
-
-    while (indexA < teamA.team.Count && indexB < teamB.team.Count)
     {
-        Console.WriteLine($"\n{fighterA.GetType().Name} (HP: {fighterA.DefaultHealth}) VS {fighterB.GetType().Name} (HP: {fighterB.DefaultHealth})");
+        int indexA = 0;
+        int indexB = 0;
 
-        // Fight until one of them dies
-        while (fighterA.DefaultHealth > 0 && fighterB.DefaultHealth > 0)
+        while (indexA < teamA.team.Count && indexB < teamB.team.Count)
         {
-            // A attacks B
-            fighterB.DefaultHealth -= fighterA.Attack;
-            Console.WriteLine($"{fighterA.GetType().Name} hits {fighterB.GetType().Name} for {fighterA.Attack} damage (HP left: {Math.Max(fighterB.DefaultHealth, 0)})");
+            var fighterA = teamA.team[indexA];
+            var fighterB = teamB.team[indexB];
 
-            if (fighterB.DefaultHealth <= 0)
+            Console.WriteLine($"\n{fighterA.GetType().Name} (HP: {fighterA.DefaultHealth}) VS {fighterB.GetType().Name} (HP: {fighterB.DefaultHealth})");
+
+            (int remainingA, int remainingB) = BattleRound(fighterA, fighterB);
+
+            if (remainingA <= 0 && remainingB <= 0)
             {
-                Console.WriteLine($"{fighterB.GetType().Name} is defeated!");
-                indexB++;
-                if (indexB < teamB.team.Count)
-                    fighterB = teamB.team[indexB];
-                break;
-            }
-
-            // B attacks A
-            fighterA.DefaultHealth -= fighterB.Attack;
-            Console.WriteLine($"{fighterB.GetType().Name} hits {fighterA.GetType().Name} for {fighterB.Attack} damage (HP left: {Math.Max(fighterA.DefaultHealth, 0)})");
-
-            if (fighterA.DefaultHealth <= 0)
-            {
-                Console.WriteLine($"{fighterA.GetType().Name} is defeated!");
+                Console.WriteLine("Both fighters are eliminated");
                 indexA++;
-                if (indexA < teamA.team.Count)
-                    fighterA = teamA.team[indexA];
-                break;
+                indexB++;
             }
+            else if (remainingA <= 0)
+            {
+                Console.WriteLine($"{fighterB.GetType().Name} wins this round!");
+                indexA++;
+            }
+            else
+            {
+                Console.WriteLine($"{fighterA.GetType().Name} wins this round!");
+                indexB++;
+            }
+
+            Console.WriteLine($"Remaining fighters: {teamA.team.Count - indexA} vs {teamB.team.Count - indexB}");
         }
+
+        if (indexA >= teamA.team.Count && indexB >= teamB.team.Count)
+            Console.WriteLine("\nIt's a draw!");
+        else if (indexA >= teamA.team.Count)
+            Console.WriteLine($"\n{teamB.teamName} Wins!");
+        else
+            Console.WriteLine($"\n{teamA.teamName} Wins!");
     }
 
-    // Announce winner
-    if (indexA >= teamA.team.Count)
-        Console.WriteLine($"\n{teamB.teamName} Wins!");
-    else
-        Console.WriteLine($"\n{teamA.teamName} Wins!");
-}
+    private (int, int) BattleRound(BaseCharacter fighterA, BaseCharacter fighterB)
+    {
+        int healthA = fighterA.DefaultHealth;
+        int healthB = fighterB.DefaultHealth;
 
+        while (healthA > 0 && healthB > 0)
+        {
+            bool aAttacksFirst = rand.Next(2) == 0;
 
+            if (aAttacksFirst)
+            {
+                healthB -= CalculateDamage(fighterA);
+                Console.WriteLine($"{fighterA.GetType().Name} hits {fighterB.GetType().Name} (HP left: {Math.Max(healthB, 0)})");
 
+                if (healthB <= 0) break;
 
+                healthA -= CalculateDamage(fighterB);
+                Console.WriteLine($"{fighterB.GetType().Name} hits {fighterA.GetType().Name} (HP left: {Math.Max(healthA, 0)})");
+            }
+            else
+            {
+                healthA -= CalculateDamage(fighterB);
+                Console.WriteLine($"{fighterB.GetType().Name} hits {fighterA.GetType().Name} (HP left: {Math.Max(healthA, 0)})");
 
+                if (healthA <= 0) break;
+
+                healthB -= CalculateDamage(fighterA);
+                Console.WriteLine($"{fighterA.GetType().Name} hits {fighterB.GetType().Name} (HP left: {Math.Max(healthB, 0)})");
+            }
+        }
+
+        return (healthA, healthB);
+    }
+
+    private int CalculateDamage(BaseCharacter fighter)
+    {
+        return fighter.Attack + rand.Next(-2, 3);
+    }
 }
