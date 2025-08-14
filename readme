@@ -1,1 +1,19 @@
-testing
+The readme should also include a brief explanation of how the battle simulation works and any assumptions made during the implementation.
+
+# Dragons and Dungeons - hkayy33 Edition
+
+### How it works?
+The player is prompted to enter a team name for 2 teams.
+- A random team of 3 characters (Cleric / Warrior / Wizard) is generated
+- The battle begins 
+
+#### Battle
+In battle each character must fight, some having advantages of another (health, attack), the winner of that battle moves on the next round - Winner stays on, you never know what move they can pull, damage is randomised to ensure no winner of a round or entire battle is the same.
+
+## Assumptions Made:
+- Each round health is reset to default meaning damage is not carried over.
+- Winners are carried down, winner stays on, not a leaderboard type system
+
+
+
+### Enjoy Playing!
