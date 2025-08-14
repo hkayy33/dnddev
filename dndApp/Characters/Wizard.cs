@@ -5,7 +5,8 @@ public class Wizard : BaseCharacter
     public override int initialiseCharacterHealth()
     {
         base.initialiseCharacterHealth();
-        Console.WriteLine($"Wizards's Base Health {DefaultHealth}");
+        //Console.WriteLine($"Wizards's Base Health {DefaultHealth}");
+        DefaultHealth -= 1; // loses 1 HP each attack
         return DefaultHealth;
     }
 
@@ -14,7 +15,7 @@ public class Wizard : BaseCharacter
         // can be overriden
         Attack = rand.Next(1, 10);
         Attack *= 2;
-        Console.WriteLine($"Wizards's Base Attack {Attack}");
+        //Console.WriteLine($"Wizards's Base Attack {Attack}");
         return Attack;
 
     }

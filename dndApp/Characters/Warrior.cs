@@ -4,7 +4,7 @@
         {
             base.initialiseCharacterHealth();
             DefaultHealth += 5;
-            Console.WriteLine($"Warrior Base Health {DefaultHealth}");
+            //Console.WriteLine($"Warrior Base Health {DefaultHealth}");
             return DefaultHealth;
         }
 
@@ -12,7 +12,7 @@
         {
             // can be overriden
             Attack = rand.Next(1, 10);
-            Console.WriteLine($"Warrior Base Attack {Attack}");
+            //Console.WriteLine($"Warrior Base Attack {Attack}");
             return Attack;
 
         }

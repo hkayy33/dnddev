@@ -9,10 +9,10 @@ class Program
         // gameLobby.GetTeamNames();
 
         var lobby = new GameLobby();
-lobby.GetTeamNames();
+        lobby.GetTeamNames();
 
-var game = new Game(lobby.GetTeamA(), lobby.GetTeamB());
-game.GameRun();
+        var game = new Game(lobby.GetTeamA(), lobby.GetTeamB());
+        game.GameRun();
 
 
 

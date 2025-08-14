@@ -1,7 +1,7 @@
 public class TeamGenerator
 {
     public List<BaseCharacter> team;
-    private string teamName;
+    public string teamName;
     private Type[] characterTypes;
 
     public TeamGenerator(string name)

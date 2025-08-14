@@ -3,7 +3,8 @@
         public override int initialiseCharacterHealth()
         {
             base.initialiseCharacterHealth();
-            Console.WriteLine($"Cleric's Base Health {DefaultHealth}");
+            //Console.WriteLine($"Cleric's Base Health {DefaultHealth}");
+            DefaultHealth += 1; // heal 1 HP
             return DefaultHealth;
         }
 
@@ -11,7 +12,8 @@
         {
             // can be overriden
             Attack = rand.Next(1, 10);
-            Console.WriteLine($"Cleric's Base Attack {Attack}");
+        //Console.WriteLine($"Cleric's Base Attack {Attack}");
+            
             return Attack;
 
         }
