@@ -11,13 +11,14 @@ class Program
             Console.Write(" .");
             counter++;
         }
+        Console.WriteLine("\n");
         //Print Team A
         var TeamA = new TeamGenerator();
-        Console.WriteLine("Team A: ");
+        Console.WriteLine("\nTeam A: ");
         TeamA.TeamChoice();
         //Print Team B
         var TeamB = new TeamGenerator();
-        Console.WriteLine("Team B: ");
+        Console.WriteLine("\nTeam B: ");
         TeamB.TeamChoice();
     }
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dndAppTester")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+159e907288061d95c61b3c33f9e06c9760547996")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19965cab15aa6ee2456f28763099427a6e63aea8")]
 [assembly: System.Reflection.AssemblyProductAttribute("dndAppTester")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dndAppTester")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
