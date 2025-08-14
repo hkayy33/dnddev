@@ -1,5 +1,3 @@
-
-
     public class Warrior : BaseCharacter
     {
         public override int initialiseCharacterHealth()

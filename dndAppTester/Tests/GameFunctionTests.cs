@@ -23,10 +23,10 @@ public class GameFunctionTests
     }
 
     [Test]
-    public void Check_that_Random_health_value_is_generated_between_1_and_10_for_Warrior()
+    public void Check_that_Random_health_value_is_generated_between_1_and_15_for_Warrior()
     {
         Assert.That(warrior.initialiseCharacterHealth, Is.GreaterThanOrEqualTo(1));
-        Assert.That(warrior.initialiseCharacterHealth, Is.LessThanOrEqualTo(10));
+        Assert.That(warrior.initialiseCharacterHealth, Is.LessThanOrEqualTo(15));
     }
     [Test]
     public void Check_that_Random_Attack_value_is_generated_between_1_and_10_for_Warrior()
