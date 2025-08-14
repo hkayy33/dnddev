@@ -8,13 +8,20 @@ public class GameFunctionTests
     // A list of team players 
     private TeamGenerator teamgenerator;
     private Warrior warrior;
+    private Cleric cleric;
+    private Wizard wizard;
 
 
     [SetUp]
     public void setup()
     {
         warrior = new Warrior();
+        cleric = new Cleric();
+        wizard = new Wizard();
+
     }
+
+    // Team Creation
     [Test]
     public void Check_If_Three_Characters_Are_Stored_In_A_List()
     {
@@ -22,6 +29,10 @@ public class GameFunctionTests
         Assert.That(teamgenerator.TeamChoice, Is.EqualTo(3));
     }
 
+
+    // Character initialisation
+
+    //warrior
     [Test]
     public void Check_that_Random_health_value_is_generated_between_1_and_15_for_Warrior()
     {
@@ -31,8 +42,38 @@ public class GameFunctionTests
     [Test]
     public void Check_that_Random_Attack_value_is_generated_between_1_and_10_for_Warrior()
     {
-        Assert.That(warrior.setAttackValues, Is.GreaterThanOrEqualTo(1));
-        Assert.That(warrior.setAttackValues, Is.LessThanOrEqualTo(10));
+        Assert.That(warrior.setDefaultAttackValues, Is.GreaterThanOrEqualTo(1));
+        Assert.That(warrior.setDefaultAttackValues, Is.LessThanOrEqualTo(10));
     }
+
+    // Cleric
+    [Test]
+    public void Check_that_Random_health_value_is_generated_between_1_and_10_for_Cleric()
+    {
+        Assert.That(cleric.initialiseCharacterHealth, Is.GreaterThanOrEqualTo(1));
+        Assert.That(cleric.initialiseCharacterHealth, Is.LessThanOrEqualTo(10));
+    }
+    [Test]
+    public void Check_that_Random_Attack_value_is_generated_between_1_and_10_for_Cleric()
+    {
+        Assert.That(cleric.setDefaultAttackValues, Is.GreaterThanOrEqualTo(1));
+        Assert.That(cleric.setDefaultAttackValues, Is.LessThanOrEqualTo(10));
+    }
+
+    // Wizard
+    [Test]
+    public void Check_that_Random_health_value_is_generated_between_1_and_10_for_Wizard()
+    {
+        Assert.That(wizard.initialiseCharacterHealth, Is.GreaterThanOrEqualTo(1));
+        Assert.That(wizard.initialiseCharacterHealth, Is.LessThanOrEqualTo(10));
+    }
+    [Test]
+    public void Check_that_Random_Attack_value_is_generated_between_1_and_10_for_Wizard()
+    {
+        Assert.That(wizard.setDefaultAttackValues, Is.GreaterThanOrEqualTo(1));
+        Assert.That(wizard.setDefaultAttackValues, Is.LessThanOrEqualTo(20));
+    }
+
+
 
 }

@@ -16,7 +16,7 @@ public abstract class BaseCharacter
         return DefaultHealth;
     }
 
-    public virtual int setAttackValues()
+    public virtual int setDefaultAttackValues()
     {
         // can be overriden
         Attack = rand.Next(1, 10);

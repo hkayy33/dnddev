@@ -8,7 +8,7 @@
             return DefaultHealth;
         }
 
-        public override int setAttackValues()
+        public override int setDefaultAttackValues()
         {
             // can be overriden
             Attack = rand.Next(1, 10);
