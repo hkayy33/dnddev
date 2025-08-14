@@ -5,8 +5,8 @@
 
 public abstract class BaseCharacter
 {
-    protected int DefaultHealth;
-    protected int Attack;
+    public int DefaultHealth;
+    public int Attack;
     protected Random rand = new Random();
 
     public virtual int initialiseCharacterHealth()

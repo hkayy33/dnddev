@@ -3,6 +3,8 @@ class GameLobby
 
     private string? TeamA;
     private string? TeamB;
+    private TeamGenerator teamAInstance;
+    private TeamGenerator teamBInstance;
 
     //
     public void Start()
@@ -54,14 +56,16 @@ class GameLobby
     }
 
     public void GenerateTeams(string teamAName, string teamBName)
-    {
+{
+    Console.WriteLine("\n");
+    teamAInstance = new TeamGenerator(name: teamAName);
+    teamAInstance.TeamChoice();
 
-        Console.WriteLine("\n");
-        //Print Team A
-        var TeamA = new TeamGenerator(name: teamAName);
-        TeamA.TeamChoice();
-        //Print Team B
-        var TeamB = new TeamGenerator(name: teamBName);
-        TeamB.TeamChoice();
-    }
+    teamBInstance = new TeamGenerator(name: teamBName);
+    teamBInstance.TeamChoice();
+}
+
+
+    public TeamGenerator GetTeamA() => teamAInstance;
+    public TeamGenerator GetTeamB() => teamBInstance;
 }

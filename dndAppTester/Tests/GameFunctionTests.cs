@@ -84,8 +84,8 @@ public class GameFunctionTests
     public void Check_Instance_of_TeamGenerator_is_available()
     {
 
-        
-        //Assert.That(teamGen.characterTypes[0], Is.InstanceOf<Warrior>());
+
+        Assert.That(Game.Attackers[0], Is.InstanceOf<Warrior>());
     }
 
 
