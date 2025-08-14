@@ -18,6 +18,16 @@ class Program
         //Print Team B
         var TeamB = new TeamGenerator(name: "Fantastic 3");
         TeamB.TeamChoice();
+
+
+        // //Health and attack values
+        // var warrior = new Warrior();
+        // warrior.setDefaultAttackValues();
+        // warrior.initialiseCharacterHealth();
+
+        // var wizard = new Wizard();
+        // wizard.initialiseCharacterHealth();
+        // wizard.setDefaultAttackValues();
     }
 }
 

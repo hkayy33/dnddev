@@ -1,47 +1,36 @@
 public class TeamGenerator
 {
-    // Instance fields (not static anymore)
-    public List<string> team;
+    public List<BaseCharacter> team;
     private string teamName;
-    private List<string> characterTypes;
+    private BaseCharacter[] characterTypes;
 
-    // Constructor to initialize the team instance
     public TeamGenerator(string name)
     {
         teamName = name;
-        team = new List<string>();
-        characterTypes = new List<string> { "Fighter", "Wizard", "Cleric" };
+        team = new List<BaseCharacter>();
+        characterTypes = [new Warrior(), new Cleric(), new Wizard()];
     }
+
+
     public int TeamChoice()
     {
-        // Available character type
-        GenerateRandomTeam(characterTypes);
-        Console.WriteLine($"\n{teamName}: ");
-        DisplayTeam();
-        // Display the team
-
-        int num = team.Count();
-
-        // Return the team as a formatted string
-        return num;
-    }
-
-    private void DisplayTeam()
-    {
-        for (int i = 0; i < team.Count; i++)
-        {
-            Console.WriteLine($"{i + 1}: {team[i]}");
-        }
-    }
-
-    private void GenerateRandomTeam(List<string> characterTypes)
-    {
+        team.Clear();
         Random rand = new Random();
-        // Create a team of 3 random characters
+
+        // Add 3 random character objects
         for (int i = 0; i < 3; i++)
         {
-            int randomIndex = rand.Next(characterTypes.Count);
+            int randomIndex = rand.Next(characterTypes.Length);
             team.Add(characterTypes[randomIndex]);
         }
+
+        // Display the team
+        Console.WriteLine($"\n{teamName}:");
+        for (int i = 0; i < team.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}: {team[i].GetType().Name}");
+        }
+
+        return team.Count;
     }
 }
